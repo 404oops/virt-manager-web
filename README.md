@@ -30,6 +30,9 @@ docker run --name virt-manager-web \
   ghcr.io/404oops/virt-manager-web:latest
 ```
 
+> [!IMPORTANT]
+> When logging in, you'll see an error that the Virtual Machine Manager can't communicate with the daemon. To mitigate this, open "File", then "Add Connection", select "Custom URI..." and then put `qemu:///system?socket=/var/run/libvirt/libvirt-sock` into the field.
+
 Security note
 -------------
 This setup bind-mounts your host libvirt socket (`/var/run/libvirt/libvirt-sock`) into the container. Passing through anything else is stupid, because you're passing through a handler that the container interfaces with.
