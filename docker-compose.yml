@@ -1,0 +1,9 @@
+services:
+  virt-manager-web:
+    image: ghcr.io/404oops/virt-manager-web:latest
+    container_name: virt-manager-web
+    restart: unless-stopped
+    ports:
+      - "6901:6901"
+    volumes:
+      - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock:rw
