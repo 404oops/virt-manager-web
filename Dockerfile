@@ -9,7 +9,6 @@ RUN apt-get update \
         locales \
         virt-manager \
         libvirt-clients \
-        libvirt-daemon-system \
         python3-libvirt \
     && sed -i "s/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /etc/locale.gen \
     && locale-gen en_US.UTF-8 \
@@ -21,9 +20,8 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-COPY start-virt-manager.sh /usr/local/bin/start-virt-manager.sh
-RUN chmod +x /usr/local/bin/start-virt-manager.sh
+COPY rootfs/ /
 
-EXPOSE 6901
+RUN chmod +x /startapp.sh
 
-CMD ["/usr/local/bin/start-virt-manager.sh"]
+RUN set-cont-env APP_NAME "virt-manager"
