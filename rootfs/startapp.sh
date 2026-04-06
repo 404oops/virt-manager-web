@@ -25,4 +25,4 @@ cleanup() {
 trap cleanup INT TERM EXIT
 
 export GDK_BACKEND=broadway
-exec /usr/bin/virt-manager
+exec /usr/bin/dbus-run-session -- /usr/bin/virt-manager --no-fork
