@@ -8,6 +8,8 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         locales \
         virt-manager \
+        virt-viewer \
+        spice-client-gtk \
         libvirt-clients \
         python3-libvirt \
     && sed -i "s/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /etc/locale.gen \
