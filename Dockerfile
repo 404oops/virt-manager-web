@@ -7,6 +7,11 @@ LABEL maintainer="404oops"
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         locales \
+        libegl1 \
+        libgl1 \
+        libglx-mesa0 \
+        libgbm1 \
+        libgl1-mesa-dri \
         virt-manager \
         virt-viewer \
         spice-client-gtk \
@@ -32,7 +37,9 @@ RUN apt-get update \
 
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
+    LC_ALL=en_US.UTF-8 \
+    LIBGL_ALWAYS_SOFTWARE=1 \
+    GALLIUM_DRIVER=llvmpipe
 
 COPY rootfs/ /
 
