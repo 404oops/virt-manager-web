@@ -1,16 +1,15 @@
-# Simple container running virt-manager over GTK Broadway.
+# Simple container running virt-manager using jlesage/baseimage-gui
+# Based on: https://github.com/jlesage/docker-baseimage-gui
 
-FROM debian:bookworm-slim
+FROM jlesage/baseimage-gui:debian-13-v4
 LABEL maintainer="404oops"
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         locales \
-        ca-certificates \
         virt-manager \
         virt-viewer \
         spice-client-gtk \
-        libgtk-3-bin \
         libvirt-clients \
         python3-libvirt \
         && SPICE_GTK_GI_PKG="$(apt-cache search '^gir1\.2-spiceclientgtk' | awk 'NR==1 {print $1}')" \
@@ -35,10 +34,8 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-EXPOSE 8085
-
 COPY rootfs/ /
 
 RUN chmod +x /startapp.sh
 
-ENTRYPOINT ["/startapp.sh"]
+RUN set-cont-env APP_NAME "virt-manager"

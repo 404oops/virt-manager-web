@@ -5,8 +5,11 @@ services:
     container_name: virt-manager-web
     restart: unless-stopped
     ports:
-      - "8085:8085"
+      - "5800:5800"
+      - "5900:5900"
     environment:
+      - WEB_AUTHENTICATION=0
+      - KEEP_APP_RUNNING=1
       - TZ=UTC
     volumes:
       - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock:rw
