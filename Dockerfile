@@ -1,7 +1,7 @@
 # Simple container running virt-manager using jlesage/baseimage-gui
 # Based on: https://github.com/jlesage/docker-baseimage-gui
 
-FROM jlesage/baseimage-gui:debian
+FROM jlesage/baseimage-gui:debian-13-v4
 LABEL maintainer="404oops"
 
 RUN apt-get update \
