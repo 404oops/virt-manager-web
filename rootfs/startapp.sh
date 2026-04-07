@@ -7,8 +7,4 @@ export LIBGL_ALWAYS_SOFTWARE=1
 export GALLIUM_DRIVER=llvmpipe
 export MESA_LOADER_DRIVER_OVERRIDE=llvmpipe
 export GDK_GL=disable
-if [ -z "$LIBVIRT_DEFAULT_URI" ]; then
-  exec /usr/bin/virt-manager -c LIBVIRT_DEFAULT_URI
-else
-  exec /usr/bin/virt-manager
-fi
+exec /usr/bin/virt-manager -c qemu:///system?socket=/var/run/libvirt/libvirt-sock
