@@ -10,8 +10,7 @@ I have a NAS which has Debian installed. The ultimate problem with it is that I 
 Quick start
 -----------
 > [!IMPORTANT]
-> If you passed a URI that differs from the default set in the volume, you'll see an error that the Virtual Machine Manager has no hosts or can't connect to the socket.
-> To mitigate this, hit "File" on the top left, then "Add Connection", select "Custom URI..." and then put `qemu:///system?socket=</your/custom/uri/path>` into the field.
+> If you see an error that says "Could not detect a default hypervisor. Make sure the appropriate QEMU/KVM virtualization and libvirt packages are installed to manage virtualization on this host.", hit "File" on the top left, then "Add Connection", select "Custom URI..." and then put `qemu:///system?socket=/var/run/libvirt/libvirt-sock` into the field.
 With Docker Compose:
 ```yaml
 services:
@@ -25,6 +24,7 @@ services:
     environment:
       - WEB_AUTHENTICATION=0
       - KEEP_APP_RUNNING=1
+      - LIBVIRT_DEFAULT_URI=qemu:///system?socket=/var/run/libvirt/libvirt-sock
     volumes:
       - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock:rw
 ```

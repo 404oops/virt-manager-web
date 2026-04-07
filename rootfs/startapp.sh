@@ -7,4 +7,8 @@ export LIBGL_ALWAYS_SOFTWARE=1
 export GALLIUM_DRIVER=llvmpipe
 export MESA_LOADER_DRIVER_OVERRIDE=llvmpipe
 export GDK_GL=disable
-exec /usr/bin/virt-manager
+if [ -z "$LIBVIRT_DEFAULT_URI" ]; then
+  exec /usr/bin/virt-manager -c LIBVIRT_DEFAULT_URI
+else
+  exec /usr/bin/virt-manager
+fi

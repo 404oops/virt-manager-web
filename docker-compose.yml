@@ -10,6 +10,6 @@ services:
     environment:
       - WEB_AUTHENTICATION=0
       - KEEP_APP_RUNNING=1
-      - TZ=UTC
+      - LIBVIRT_DEFAULT_URI=qemu:///system?socket=/var/run/libvirt/libvirt-sock
     volumes:
       - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock:rw
