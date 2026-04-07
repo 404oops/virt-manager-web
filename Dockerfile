@@ -40,7 +40,8 @@ ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8 \
     LIBGL_ALWAYS_SOFTWARE=1 \
     GALLIUM_DRIVER=llvmpipe \
-    WEB_AUDIO=1
+    WEB_AUDIO=1 \
+    LIBVIRT_DEFAULT_URI=qemu:///system?socket=/var/run/libvirt/libvirt-sock
 
 COPY rootfs/ /
 
