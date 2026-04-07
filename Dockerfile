@@ -39,7 +39,8 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8 \
     LIBGL_ALWAYS_SOFTWARE=1 \
-    GALLIUM_DRIVER=llvmpipe
+    GALLIUM_DRIVER=llvmpipe \
+    WEB_AUDIO=1
 
 COPY rootfs/ /
 
