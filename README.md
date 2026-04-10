@@ -10,7 +10,8 @@ I have a NAS which has Debian installed. The ultimate problem with it is that I 
 Quick start
 -----------
 > [!IMPORTANT]
-> If you see an error that says "Could not detect a default hypervisor. Make sure the appropriate QEMU/KVM virtualization and libvirt packages are installed to manage virtualization on this host.", hit "File" on the top left, then "Add Connection", select "Custom URI..." and then put `qemu:///system?socket=/var/run/libvirt/libvirt-sock` or whichever path you put into the field.
+> If you see an error that says "Could not detect a default hypervisor. Make sure the appropriate QEMU/KVM virtualization and libvirt packages are installed to manage virtualization on this host.", hit "File" on the top left, then "Add Connection", select "Custom URI..." and then put `qemu:///system?socket=/var/run/libvirt/libvirt-sock` or whichever path you put into the field. I'd just keep the latter part the same, but I fear that would break stuff.
+> 
 With Docker Compose:
 ```yaml
 services:
